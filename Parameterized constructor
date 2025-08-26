@@ -1,0 +1,30 @@
+package com.sample;
+class Cse {
+   String section;
+   int classRoomNo;
+   // Default constructor
+   Cse() {
+       System.out.println("Default constructor called");
+   }
+   // Parameterized constructor
+   Cse(String section) {
+       this.section = section;
+       System.out.println("Parameterized constructor called");
+       System.out.println("Section: " + section );
+   }
+   Cse(String section, int classRoomNo) {
+       this.section = section;
+       this.classRoomNo = classRoomNo;
+       System.out.println("Parameterized constructor called");
+       System.out.println("Section: " + section + ", ClassRoom No: " + classRoomNo);
+   }
+}
+public class ParameterizedConstructor {
+   public static void main(String[] args) {
+       // Calling default constructor
+       Cse obj1 = new Cse();
+       // Calling parameterized constructor
+       Cse obj2 = new Cse("CSE-E");
+       Cse obj3= new Cse("CSE-E", 206);
+   }
+}
