@@ -1,0 +1,74 @@
+package com.sample;
+import java.util.Scanner;
+// Encapsulation class
+class Encapsulation {
+   private String name;
+   private int balance;
+   // Getter for name
+   public String getName() {
+       return name;
+   }
+   // Setter for name
+   public void setName(String name) {
+       this.name = name;
+   }
+   // Getter for balance
+   public int getBalance() {
+       return balance;
+   }
+   // Setter for initial balance
+   public void setBalance(int balance) {
+       if (balance >= 0) {
+           this.balance = balance;
+       }
+       else {
+           System.out.println("Balance cannot be negative!");
+       }
+   }
+   // Deposit method
+   public void deposit(int amount) {
+       if (amount >=0) {
+           balance += amount;
+           System.out.println("Deposited: " + amount);
+       } else {
+           System.out.println("Deposit amount must be positive!");
+       }
+   }
+   // Withdraw method
+   public void withdraw(int amount) {
+       if (amount >= 0 && amount <= balance) {
+           balance -= amount;
+           System.out.println("Withdrawn: " + amount);
+       } else {
+           System.out.println("Invalid withdrawal amount!");
+       }
+   }
+}
+public class BankAcc {
+   public static void main(String[] args) {
+       Scanner sc = new Scanner(System.in);
+       Encapsulation acc = new Encapsulation();
+       System.out.print("Enter Account Holder Name: ");
+       String name = sc.nextLine();
+       acc.setName(name);
+       System.out.print("Enter Initial Balance: ");
+       int balance = sc.nextInt();
+       acc.setBalance(balance);
+       System.out.println("\n--- Account Details ---");
+       System.out.println("Account Holder: " + acc.getName());
+       System.out.println("Balance: " + acc.getBalance());
+       System.out.println("\n-----------------------");
+       // Perform deposit
+       System.out.print("\nEnter amount to deposit: ");
+       int depositAmount = sc.nextInt();
+       acc.deposit(depositAmount);
+       // Perform withdrawal
+       System.out.print("Enter amount to withdraw: ");
+       int withdrawAmount = sc.nextInt();
+       acc.withdraw(withdrawAmount);
+       System.out.println("\n--- Updated Account Details ---");
+       System.out.println("Account Holder: " + acc.getName());
+       System.out.println("Balance: " + acc.getBalance());
+       sc.close();
+   }
+}
